@@ -1,23 +1,20 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useEffect } from "react";
+import CountrySelect from "./components/CountrySelect";
+import { initCountries } from "./reducers/countriesReducer";
+import { useDispatch } from "react-redux";
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initCountries());
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p></p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CountrySelect />
+    </>
   );
-}
+};
 
 export default App;

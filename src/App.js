@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import CountrySelect from "./components/CountrySelect";
 import { initCountries } from "./reducers/countriesReducer";
 import { useDispatch } from "react-redux";
+import CountryInfo from "./components/CountryInfo";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <>
       <CountrySelect />
+      <CountryInfo />
     </>
   );
 };

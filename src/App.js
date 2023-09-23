@@ -3,6 +3,7 @@ import CountrySelect from "./components/CountrySelect";
 import { initCountries } from "./reducers/countriesReducer";
 import { useDispatch } from "react-redux";
 import CountryInfo from "./components/CountryInfo";
+import Navigation from "./components/Navigation";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const App = () => {
     <>
       <CountrySelect />
       <CountryInfo />
+      <Navigation />
     </>
   );
 };

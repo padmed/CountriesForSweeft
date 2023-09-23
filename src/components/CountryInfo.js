@@ -46,21 +46,33 @@ const CountryInfo = () => {
       <table>
         <tbody>
           <tr>
-            <td><b>Capital: </b></td>
+            <td>
+              <b>Capital: </b>
+            </td>
             <td>{selectedCountry.capital}</td>
-            <td><b>Continent: </b></td>
+            <td>
+              <b>Continent: </b>
+            </td>
             <td>{formatContinets}</td>
           </tr>
           <tr>
-            <td><b>Currency: </b></td>
+            <td>
+              <b>Currency: </b>
+            </td>
             <td>{formattedCurrency}</td>
-            <td><b>Population: </b></td>
+            <td>
+              <b>Population: </b>
+            </td>
             <td>{formatPopulation}</td>
           </tr>
           <tr>
-            <td><b>Region: </b></td>
+            <td>
+              <b>Region: </b>
+            </td>
             <td>{selectedCountry.region}</td>
-            <td><b>Borders: </b></td>
+            <td>
+              <b>Borders: </b>
+            </td>
             <td>{formatBorders}</td>
           </tr>
         </tbody>

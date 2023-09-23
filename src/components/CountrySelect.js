@@ -18,16 +18,16 @@ const CountrySelect = () => {
     if (path.pathname === "/") {
       dispatch(setCurrentLocation()); // Sets the location of user
     } else if (path.pathname !== "/" && !selectedCountry) {
-      const countryCode = path.pathname.split('/')[1]; // After refreshing the page, this sets the state to country specified by url
+      const countryCode = path.pathname.split("/")[1]; // After refreshing the page, this sets the state to country specified by url
       dispatch(setSelectedCountry(countryCode));
     }
 
     // Whenever state of selectedCountry is changed url is changed as well
     if (selectedCountry) {
       let url = `/${selectedCountry.cca3}`;
-      if (path.pathname.includes('airports')) {
-        url += '/airports'
-      } 
+      if (path.pathname.includes("airports")) {
+        url += "/airports";
+      }
       navigate(url);
     }
   }, [selectedCountry, countries]);

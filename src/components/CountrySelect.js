@@ -35,7 +35,7 @@ const CountrySelect = () => {
   };
 
   const initialValue = selectedCountry ? (
-    <option data-country-code={selectedCountry.cca3}>
+    <option hidden data-country-code={selectedCountry.cca3}>
       {selectedCountry.name.common}
     </option>
   ) : (

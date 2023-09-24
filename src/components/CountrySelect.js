@@ -9,20 +9,23 @@ import {
 
 const CountrySelect = () => {
   const countries = useSelector(selectMappedCountries); // Data in state in minimized to prevent getting unnecessury data
-  const selectedCountry = useSelector((state) => state.selectedCountry);
+  const { selectedCountry } = useSelector(state => state)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const path = useLocation();
 
   useEffect(() => {
+    // If no country set, tries to set user's current location
     if (path.pathname === "/") {
-      dispatch(setCurrentLocation()); // Sets the location of user
-    } else if (path.pathname !== "/" && !selectedCountry) {
-      const countryCode = path.pathname.split("/")[1]; // After refreshing the page, this sets the state to country specified by url
+      dispatch(setCurrentLocation()); 
+    }
+    // When a country is selected and the page is refreshed, the state is updated to the previously selected country
+    else if (path.pathname !== "/" && !selectedCountry) {
+      const countryCode = path.pathname.split("/")[1];
       dispatch(setSelectedCountry(countryCode));
     }
 
-    // Whenever state of selectedCountry is changed url is changed as well
+    // "When the user selects a different country, this updates the URL accordingly."
     if (selectedCountry) {
       let url = `/${selectedCountry.cca3}`;
       if (path.pathname.includes("airports")) {
@@ -38,12 +41,13 @@ const CountrySelect = () => {
     dispatch(setSelectedCountry(countryCode));
   };
 
+  // Sets the default option for selection
   const initialValue = selectedCountry ? (
     <option hidden data-country-code={selectedCountry.cca3}>
       {selectedCountry.name.common}
     </option>
   ) : (
-    <option>Choose the country</option>
+    <option hidden>Choose the country</option>
   );
 
   return (

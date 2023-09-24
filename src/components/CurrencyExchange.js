@@ -1,12 +1,13 @@
-import { updateRates } from "../reducers/ratesReducer";
+import { addCountryRates } from "../reducers/ratesReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { selectMappedCountriesWithCurrency } from "../reducers/selectors";
 import { selectBaseCurrency } from "../reducers/selectors";
+import { selectRatesByCurrency } from "../reducers/selectors";
 
 const CurrencyExchange = () => {
   const dispatch = useDispatch();
-  const rates = useSelector((state) => state.rates); // Rates compared to baseCurrency
+  const rates = useSelector(selectRatesByCurrency); // Rates compared to baseCurrency
   const countries = useSelector(selectMappedCountriesWithCurrency); // Filtered state, Country name + currency props
   const baseCurrency = useSelector(selectBaseCurrency); // The currency of the country selected by the user
   const [baseInputValue, setbaseInputValue] = useState(0);
@@ -18,8 +19,8 @@ const CurrencyExchange = () => {
 
   // Updates rates if the country selection changes
   useEffect(() => {
-    if (baseCurrency) {
-      dispatch(updateRates(baseCurrency.currency));
+    if (baseCurrency && !rates) {
+      dispatch(addCountryRates(baseCurrency.currency));
     }
   }, [baseCurrency]);
 

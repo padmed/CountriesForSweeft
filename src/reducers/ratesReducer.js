@@ -3,10 +3,11 @@ import rateServices from "../services/rates";
 
 const ratesSlice = createSlice({
   name: "rates",
-  initialState: null,
+  initialState: [],
   reducers: {
     setRates: (state, action) => {
-      return action.payload;
+      const baseCurrency = action.payload.baseCurrency;
+      return [...state, { [baseCurrency]: action.payload.rates }];
     },
   },
 });
@@ -14,9 +15,9 @@ const ratesSlice = createSlice({
 export default ratesSlice.reducer;
 const { setRates } = ratesSlice.actions;
 
-export const updateRates = (baseCurrency) => {
+export const addCountryRates = (baseCurrency) => {
   return async (dispatch) => {
     const rates = await rateServices.getRates(baseCurrency);
-    dispatch(setRates(rates));
+    dispatch(setRates({rates, baseCurrency}));
   };
 };

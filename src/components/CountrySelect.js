@@ -9,7 +9,7 @@ import {
 
 const CountrySelect = () => {
   const countries = useSelector(selectMappedCountries); // Data in state in minimized to prevent getting unnecessury data
-  const { selectedCountry } = useSelector(state => state)
+  const selectedCountry = useSelector(state => state.selectedCountry)
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const path = useLocation();

@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import { useSelector } from "react-redux";
-import numeral from "numeral";
 import { selectMappedCountries } from "../reducers/selectors";
+import helpers from "../utils/countryHelpers"; 
 
 const CountryInfo = () => {
   const selectedCountry = useSelector((state) => state.selectedCountry);
@@ -11,27 +11,10 @@ const CountryInfo = () => {
     return null;
   }
 
-  const formattedCurrency = Object.keys(selectedCountry.currencies)
-    .map((currency) => {
-      const { name, symbol } = selectedCountry.currencies[currency];
-      return `${name} (${symbol})`;
-    })
-    .join(", ");
-
-  const formatContinets =
-    selectedCountry.continents.length === 1
-      ? selectedCountry.continents[0]
-      : selectedCountry.continents.join(", ");
-
-  const formatPopulation = numeral(selectedCountry.population).format("0,0");
-
-  const formatBorders =
-    selectedCountry.borders.length > 0
-      ? selectedCountry.borders
-          .map((border) => countries.find((country) => country.code === border))
-          .map((recieved) => recieved.name)
-          .join(", ")
-      : "No borders around this country";
+  const formattedCurrency = helpers.formatCurrency(selectedCountry.currencies);
+  const formattedContinents = helpers.formatContinents(selectedCountry.continents);
+  const formatPopulation = helpers.formatPopulation(selectedCountry.population);
+  const formatBorders = helpers.formatBorders(selectedCountry.borders, countries);
 
   return (
     <div>
@@ -53,7 +36,7 @@ const CountryInfo = () => {
             <td>
               <b>Continent: </b>
             </td>
-            <td>{formatContinets}</td>
+            <td>{formattedContinents}</td>
           </tr>
           <tr>
             <td>

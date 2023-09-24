@@ -9,7 +9,7 @@ const CurrencyExchange = () => {
   const rates = useSelector((state) => state.rates); // Rates compared to baseCurrency
   const countries = useSelector(selectMappedCountriesWithCurrency); // Filtered state, Country name + currency props
   const baseCurrency = useSelector(selectBaseCurrency); // The currency of the country selected by the user
-  const [baseValue, setBaseValue] = useState(0);
+  const [baseInputValue, setbaseInputValue] = useState(0);
   const [convertedRate, setConvertedRate] = useState(0);
   const [selectedCurrency, setSelectedCurrency] = useState({
     currencyName: null,
@@ -28,13 +28,14 @@ const CurrencyExchange = () => {
     const currencyName = selectedOption.getAttribute("data-currency");
     const currencySymbol = selectedOption.getAttribute("data-symbol");
     setSelectedCurrency({ currencyName, currencySymbol });
-    setBaseValue(0); // Resets baseCurrency input if the country changes
+    setbaseInputValue(0); // Resets baseCurrency input if the country changes
+    setConvertedRate(0)
   };
 
   const convertRate = (e) => {
     const baseValue = e.target.value;
     const rate = rates[selectedCurrency.currencyName] || 0;
-    setBaseValue(baseValue);
+    setbaseInputValue(baseValue);
     setConvertedRate(rate * baseValue);
   };
 
@@ -54,7 +55,7 @@ const CurrencyExchange = () => {
       </select>
 
       <div>
-        <input type="number" value={baseValue} onChange={convertRate} />
+        <input type="number" value={baseInputValue} onChange={convertRate} />
         <input type="number" value={convertedRate} disabled />
       </div>
     </div>

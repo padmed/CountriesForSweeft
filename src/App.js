@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import { useEffect } from "react";
 import CountrySelect from "./components/CountrySelect";
 import { initCountries } from "./reducers/countriesReducer";

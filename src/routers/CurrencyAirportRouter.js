@@ -8,7 +8,7 @@ const CurrencyAirportRouter = () => {
     const path = useLocation();
 
     if (!selectedCountry || selectedCountry.cca3 !== path.pathname.split("/")[1]) {
-      return null; // Render nothing if the conditions are not met
+      return null; 
     }
     
     return <Routes>

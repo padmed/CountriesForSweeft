@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "../utils/config";
 
-const API_KEY = config.API_KEY;
+const API_KEY = config.API_KEY_LOCATION;
 
 const getCountryName = async ({ longitude, latitude }) => {
   const request = await axios.get(

@@ -9,7 +9,7 @@ import {
 
 const CountrySelect = () => {
   const countries = useSelector(selectMappedCountries); // Data in state in minimized to prevent getting unnecessury data
-  const selectedCountry = useSelector(state => state.selectedCountry)
+  const selectedCountry = useSelector((state) => state.selectedCountry);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const path = useLocation();
@@ -17,7 +17,7 @@ const CountrySelect = () => {
   useEffect(() => {
     // If no country set, tries to set user's current location
     if (path.pathname === "/") {
-      dispatch(setCurrentLocation()); 
+      dispatch(setCurrentLocation());
     }
     // When a country is selected and the page is refreshed, the state is updated to the previously selected country
     else if (path.pathname !== "/" && !selectedCountry) {

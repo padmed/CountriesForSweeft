@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import numeral from "numeral";
 
 const formatCurrency = (currencies) => {
@@ -20,10 +21,15 @@ const formatPopulation = (population) => {
 const formatBorders = (borders, countries) => {
   return borders.length > 0
     ? borders
-        .map((border) => countries.find((country) => country.code === border))
-        .map((received) => received.name)
-        .join(", ")
+      .map((border) => countries.find((country) => country.code === border))
+      .map((received) => received.name)
+      .join(", ")
     : "No borders around this country";
 };
 
-export default { formatCurrency, formatContinents, formatPopulation, formatBorders}
+export default {
+  formatCurrency,
+  formatContinents,
+  formatPopulation,
+  formatBorders,
+};

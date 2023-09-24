@@ -18,6 +18,6 @@ const { setRates } = ratesSlice.actions;
 export const addCountryRates = (baseCurrency) => {
   return async (dispatch) => {
     const rates = await rateServices.getRates(baseCurrency);
-    dispatch(setRates({rates, baseCurrency}));
+    dispatch(setRates({ rates, baseCurrency }));
   };
 };

@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import { useSelector } from "react-redux";
 import { selectMappedCountries } from "../reducers/selectors";
-import helpers from "../utils/countryHelpers"; 
+import helpers from "../utils/countryHelpers";
 
 const CountryInfo = () => {
   const selectedCountry = useSelector((state) => state.selectedCountry);
@@ -12,9 +12,14 @@ const CountryInfo = () => {
   }
 
   const formattedCurrency = helpers.formatCurrency(selectedCountry.currencies);
-  const formattedContinents = helpers.formatContinents(selectedCountry.continents);
+  const formattedContinents = helpers.formatContinents(
+    selectedCountry.continents,
+  );
   const formatPopulation = helpers.formatPopulation(selectedCountry.population);
-  const formatBorders = helpers.formatBorders(selectedCountry.borders, countries);
+  const formatBorders = helpers.formatBorders(
+    selectedCountry.borders,
+    countries,
+  );
 
   return (
     <div>

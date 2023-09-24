@@ -30,7 +30,7 @@ const CurrencyExchange = () => {
     const currencySymbol = selectedOption.getAttribute("data-symbol");
     setSelectedCurrency({ currencyName, currencySymbol });
     setbaseInputValue(0); // Resets baseCurrency input if the country changes
-    setConvertedRate(0)
+    setConvertedRate(0);
   };
 
   const convertRate = (e) => {

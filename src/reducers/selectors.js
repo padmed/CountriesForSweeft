@@ -40,3 +40,13 @@ export const selectBaseCurrency = createSelector(
     };
   },
 );
+
+export const selectRatesByCurrency = createSelector(
+  [(state) => state.selectedCountry.currencies, (state) => state.rates],
+  (currencies, rates) => {
+    const currencyCode = Object.keys(currencies)[0];
+    const matchingRate = rates.find((rate) => rate.hasOwnProperty(currencyCode));
+
+    return matchingRate ? Object.values(matchingRate)[0] : null; // Return null if no matching rate is found
+  }
+);

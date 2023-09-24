@@ -14,6 +14,7 @@ const selectedCountrySlice = createSlice({
 export default selectedCountrySlice.reducer;
 const { setCountry } = selectedCountrySlice.actions;
 
+// Helper function for setCurrentLocation
 const getCountryName = async (coordinates) => {
   try {
     const request = await locationServices.getCountryName(coordinates);

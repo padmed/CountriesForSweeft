@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import helpers from "../utils/helpers";
 import { containerBorder } from "../utils/styles";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Airports = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,19 @@ const Airports = () => {
   };
 
   if (!airports) {
-    return null;
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress sx={{ marginTop: "150px" }} />
+      </div>
+    );
   }
 
   const airportsToShow = helpers.filterAirports(searchValue, airports);

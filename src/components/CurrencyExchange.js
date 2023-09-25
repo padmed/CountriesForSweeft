@@ -12,6 +12,7 @@ import {
   Container,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { containerBorder } from "../utils/styles";
 
 const CurrencyExchange = () => {
   const dispatch = useDispatch();
@@ -49,14 +50,7 @@ const CurrencyExchange = () => {
   };
 
   return (
-    <Container
-      sx={{
-        border: "1px solid rgba(0, 0, 0, 0.12)",
-        boxShadow: "0px 3px 4px 0px rgba(0, 0, 0, 0.2)",
-        borderRadius: "2px",
-        marginTop: "10px",
-      }}
-    >
+    <Container sx={containerBorder}>
       <Select
         id="countries"
         variant="standard"

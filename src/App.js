@@ -6,6 +6,7 @@ import CountryInfo from "./components/CountryInfo";
 import Navigation from "./components/Navigation";
 import CurrencyAirportRouter from "./routers/CurrencyAirportRouter";
 import { Grid } from "@mui/material";
+import { componentSize } from "./utils/styles";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,21 +19,20 @@ const App = () => {
     <Grid
       container
       spacing={2}
-      justifyContent="center"
       alignItems="center"
       style={{ minHeight: "100vh" }}
       direction="column"
     >
-      <Grid item xs={12} style={{ minHeight: "70px", width: "100%" }}>
+      <Grid item xs={12} style={componentSize}>
         <CountrySelect />
       </Grid>
-      <Grid item xs={12} style={{ minHeight: "250px", width: "100%" }}>
+      <Grid item xs={12} style={componentSize}>
         <CountryInfo />
       </Grid>
-      <Grid item xs={12} style={{ minHeight: "50px", width: "100%" }}>
+      <Grid item xs={12} style={componentSize}>
         <Navigation />
       </Grid>
-      <Grid item xs={12} style={{ minHeight: "500px", width: "100%" }}>
+      <Grid item xs={12} style={componentSize}>
         <CurrencyAirportRouter />
       </Grid>
     </Grid>

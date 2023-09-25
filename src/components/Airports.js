@@ -9,6 +9,7 @@ import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import helpers from "../utils/helpers";
+import { containerBorder } from "../utils/styles";
 
 const Airports = () => {
   const dispatch = useDispatch();
@@ -45,14 +46,7 @@ const Airports = () => {
         value={searchValue}
         label="Search for an airport"
       />
-      <Table
-        sx={{
-          border: "1px solid rgba(0, 0, 0, 0.12)",
-          boxShadow: "0px 3px 4px 0px rgba(0, 0, 0, 0.2)",
-          borderRadius: "2px",
-          marginTop: "10px",
-        }}
-      >
+      <Table sx={containerBorder}>
         <TableBody>
           {airportsToShow.map((airport) => (
             <TableRow key={airport.icao + airport.iata}>

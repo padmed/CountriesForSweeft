@@ -3,13 +3,22 @@ import { useSelector } from "react-redux";
 import { selectMappedCountries } from "../reducers/selectors";
 import helpers from "../utils/helpers";
 import CountryInfoTable from "./CountryInfoTable";
+import { containerBorder } from "../utils/styles";
 
 const CountryInfo = () => {
   const selectedCountry = useSelector((state) => state.selectedCountry);
   const countries = useSelector(selectMappedCountries); // Data in state in minimized to prevent getting unnecessury data
 
   if (!selectedCountry) {
-    return null;
+    return (
+      <div
+        style={{
+          ...containerBorder,
+          marginTop: "10px",
+          height: "150px",
+        }}
+      ></div>
+    );
   }
 
   const formattedCurrency = helpers.formatCurrency(selectedCountry.currencies);

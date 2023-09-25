@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import CountryInfo from "./components/CountryInfo";
 import Navigation from "./components/Navigation";
 import CurrencyAirportRouter from "./routers/CurrencyAirportRouter";
+import { Grid } from "@mui/material";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -15,10 +16,26 @@ const App = () => {
 
   return (
     <>
-      <CountrySelect />
-      <CountryInfo />
-      <Navigation />
-      <CurrencyAirportRouter />
+      <Grid
+        container
+        spacing={2} // Adjust as needed
+        justifyContent="center" // Horizontally center
+        alignItems={"center"}
+        style={{ minHeight: "100vh" }}
+      >
+        <Grid item xs={12}>
+          <CountrySelect />
+        </Grid>
+        <Grid item xs={12}>
+          <CountryInfo />
+        </Grid>
+        <Grid item xs={12}>
+          <Navigation />
+        </Grid>
+        <Grid item xs={12}>
+          <CurrencyAirportRouter />
+        </Grid>
+      </Grid>
     </>
   );
 };

@@ -6,6 +6,9 @@ import {
   setSelectedCountry,
   setCurrentLocation,
 } from "../reducers/selectedCountryReducer";
+// Styles
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const CountrySelect = () => {
   const countries = useSelector(selectMappedCountries); // Data in state in minimized to prevent getting unnecessury data
@@ -36,29 +39,33 @@ const CountrySelect = () => {
   }, [selectedCountry, countries]);
 
   const handleSelectChange = (e) => {
-    const selectedOption = e.target.options[e.target.selectedIndex];
-    const countryCode = selectedOption.getAttribute("data-country-code");
+    const countryCode = e.target.value;
     dispatch(setSelectedCountry(countryCode));
   };
 
-  // Sets the default option for selection
-  const initialValue = selectedCountry ? (
-    <option hidden data-country-code={selectedCountry.cca3}>
-      {selectedCountry.name.common}
-    </option>
-  ) : (
-    <option hidden>Choose the country</option>
-  );
-
   return (
-    <select onChange={handleSelectChange}>
-      {initialValue}
+    <Select
+      value={selectedCountry ? selectedCountry.cca3 : ""} // Use the country code as the value
+      sx={{ width: "100%" }}
+      onChange={handleSelectChange}
+      MenuProps={{
+        PaperProps: {
+          style: {
+            maxHeight: "300px", // Set a fixed max height for the dropdown
+          },
+        },
+      }}
+    >
       {countries.map((country) => (
-        <option key={country.code} data-country-code={country.code}>
+        <MenuItem
+          key={country.code}
+          value={country.code}
+          style={{ height: "50px" }}
+        >
           {country.name}
-        </option>
+        </MenuItem>
       ))}
-    </select>
+    </Select>
   );
 };
 

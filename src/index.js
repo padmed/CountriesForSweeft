@@ -4,12 +4,15 @@ import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Container } from "@mui/material";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
     <Provider store={store}>
-      <App />
+      <Container>
+        <App />
+      </Container>
     </Provider>
   </Router>,
 );

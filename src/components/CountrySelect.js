@@ -48,6 +48,7 @@ const CountrySelect = () => {
       value={selectedCountry ? selectedCountry.cca3 : ""} // Use the country code as the value
       sx={{ width: "100%" }}
       onChange={handleSelectChange}
+      displayEmpty
       MenuProps={{
         PaperProps: {
           style: {
@@ -56,6 +57,9 @@ const CountrySelect = () => {
         },
       }}
     >
+      <MenuItem hidden disabled value="">
+        Please select the country
+      </MenuItem>
       {countries.map((country) => (
         <MenuItem
           key={country.code}

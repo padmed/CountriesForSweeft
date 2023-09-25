@@ -18,8 +18,8 @@ const App = () => {
     <>
       <Grid
         container
-        spacing={2} // Adjust as needed
-        justifyContent="center" // Horizontally center
+        spacing={2}
+        justifyContent="center"
         alignItems={"center"}
         style={{ minHeight: "100vh" }}
       >

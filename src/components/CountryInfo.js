@@ -2,6 +2,7 @@
 import { useSelector } from "react-redux";
 import { selectMappedCountries } from "../reducers/selectors";
 import helpers from "../utils/countryHelpers";
+// import { Grid } from "@mui/material";
 
 const CountryInfo = () => {
   const selectedCountry = useSelector((state) => state.selectedCountry);
@@ -23,14 +24,23 @@ const CountryInfo = () => {
 
   return (
     <div>
-      <div>
-        <h2>{selectedCountry.name.official}</h2>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h2 style={{ fontSize: "2rem", margin: "0", marginRight: "20px" }}>
+          {selectedCountry.name.official}
+        </h2>
+
         <img
           src={selectedCountry.flags.svg}
           alt={selectedCountry.flags.alt}
-        ></img>
+          style={{ width: "5%" }}
+        />
       </div>
-
       <table>
         <tbody>
           <tr>

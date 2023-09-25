@@ -8,7 +8,6 @@ const baseUrl = "https://api.api-ninjas.com/v1/airports?country=";
 const getAirports = async (countryCode) => {
   try {
     const request = await axios.get(`${baseUrl}${countryCode}`, headers);
-    console.log(request.data);
     return request.data;
   } catch (e) {
     console.error("Error: ", e.response.data);

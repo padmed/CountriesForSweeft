@@ -19,19 +19,20 @@ const App = () => {
       container
       spacing={2}
       justifyContent="center"
-      alignItems={"center"}
+      alignItems="center"
       style={{ minHeight: "100vh" }}
+      direction="column"
     >
-      <Grid item xs={12} style={{ height: "70px" }}>
+      <Grid item xs={12} style={{ minHeight: "70px", width: "100%" }}>
         <CountrySelect />
       </Grid>
-      <Grid item xs={12} style={{ height: "250px" }}>
+      <Grid item xs={12} style={{ minHeight: "250px", width: "100%" }}>
         <CountryInfo />
       </Grid>
-      <Grid item xs={12} style={{ height: "50px" }}>
+      <Grid item xs={12} style={{ minHeight: "50px", width: "100%" }}>
         <Navigation />
       </Grid>
-      <Grid item xs={12} style={{ height: "500px" }}>
+      <Grid item xs={12} style={{ minHeight: "500px", width: "100%" }}>
         <CurrencyAirportRouter />
       </Grid>
     </Grid>

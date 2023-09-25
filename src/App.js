@@ -31,7 +31,7 @@ const App = () => {
       <Grid item xs={12} style={{ height: "50px" }}>
         <Navigation />
       </Grid>
-      <Grid item xs={12} style={{ height: "300px" }}>
+      <Grid item xs={12} style={{ height: "500px" }}>
         <CurrencyAirportRouter />
       </Grid>
     </Grid>

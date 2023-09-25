@@ -27,7 +27,18 @@ const formatBorders = (borders, countries) => {
     : "No borders around this country";
 };
 
+const filterAirports = (searchValue, airports) => {
+  return searchValue === "Search for an airport"
+    ? airports
+    : airports.filter((airport) => {
+      const string = `${airport.name} ${airport.city} ${airport.iata}`;
+      return string.toLowerCase().includes(searchValue.toLowerCase());
+    });
+}
+
+
 export default {
+  filterAirports,
   formatCurrency,
   formatContinents,
   formatPopulation,

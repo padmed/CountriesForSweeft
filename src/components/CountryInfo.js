@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import { selectMappedCountries } from "../reducers/selectors";
 import helpers from "../utils/countryHelpers";
-// import { Grid } from "@mui/material";
+import CountryInfoTable from "./CountryInfoTable";
 
 const CountryInfo = () => {
   const selectedCountry = useSelector((state) => state.selectedCountry);
@@ -16,8 +16,10 @@ const CountryInfo = () => {
   const formattedContinents = helpers.formatContinents(
     selectedCountry.continents,
   );
-  const formatPopulation = helpers.formatPopulation(selectedCountry.population);
-  const formatBorders = helpers.formatBorders(
+  const formattedPopulation = helpers.formatPopulation(
+    selectedCountry.population,
+  );
+  const formattedBorders = helpers.formatBorders(
     selectedCountry.borders,
     countries,
   );
@@ -28,7 +30,8 @@ const CountryInfo = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "start",
+          marginBottom: "50px",
         }}
       >
         <h2 style={{ fontSize: "2rem", margin: "0", marginRight: "20px" }}>
@@ -41,40 +44,13 @@ const CountryInfo = () => {
           style={{ width: "5%" }}
         />
       </div>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <b>Capital: </b>
-            </td>
-            <td>{selectedCountry.capital}</td>
-            <td>
-              <b>Continent: </b>
-            </td>
-            <td>{formattedContinents}</td>
-          </tr>
-          <tr>
-            <td>
-              <b>Currency: </b>
-            </td>
-            <td>{formattedCurrency}</td>
-            <td>
-              <b>Population: </b>
-            </td>
-            <td>{formatPopulation}</td>
-          </tr>
-          <tr>
-            <td>
-              <b>Region: </b>
-            </td>
-            <td>{selectedCountry.region}</td>
-            <td>
-              <b>Borders: </b>
-            </td>
-            <td>{formatBorders}</td>
-          </tr>
-        </tbody>
-      </table>
+      <CountryInfoTable
+        formattedBorders={formattedBorders}
+        formattedPopulation={formattedPopulation}
+        formattedContinents={formattedContinents}
+        formattedCurrency={formattedCurrency}
+        selectedCountry={selectedCountry}
+      />
     </div>
   );
 };

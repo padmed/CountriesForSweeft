@@ -53,3 +53,15 @@ export const selectRatesByCurrency = createSelector(
     return matchingRate ? Object.values(matchingRate)[0] : null; // Return null if no matching rate is found
   },
 );
+
+export const selectAirportsByCountry = createSelector(
+  [(state) => state.airports, (state) => state.selectedCountry.cca2],
+  (airports, cca2) => {
+    // Check if the selectedCountry's cc2 code exists in the airports object
+    if (airports[cca2]) {
+      return airports[cca2];
+    } else {
+      return null;
+    }
+  },
+);

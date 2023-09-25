@@ -50,7 +50,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://padmed.github.io/countries_sweeft",
   "devDependencies": {
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",

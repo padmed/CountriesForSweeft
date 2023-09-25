@@ -83,7 +83,7 @@ const CurrencyExchange = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          paddingBottom: "20vh",
+          paddingBottom: "15vh",
         }}
       >
         <TextField

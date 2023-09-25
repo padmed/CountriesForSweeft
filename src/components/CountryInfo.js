@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import { useSelector } from "react-redux";
 import { selectMappedCountries } from "../reducers/selectors";
-import helpers from "../utils/countryHelpers";
+import helpers from "../utils/helpers";
 import CountryInfoTable from "./CountryInfoTable";
 
 const CountryInfo = () => {

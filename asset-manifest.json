@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/countries_sweeft/static/js/main.274b98ef.js",
+    "main.js": "/countries_sweeft/static/js/main.7c7d46d2.js",
     "index.html": "/countries_sweeft/index.html",
-    "main.274b98ef.js.map": "/countries_sweeft/static/js/main.274b98ef.js.map"
+    "main.7c7d46d2.js.map": "/countries_sweeft/static/js/main.7c7d46d2.js.map"
   },
   "entrypoints": [
-    "static/js/main.274b98ef.js"
+    "static/js/main.7c7d46d2.js"
   ]
 }
